@@ -11,9 +11,35 @@ branding:
   title: Crux Plugins
   label: Docs
 
+breadcrumb:
+  enabled: true
+  home: ":icon-home:"
+
 links:
-- text: Getting Started
-  link: https://retype.com/guides/getting-started/
+- text: Health Bar
+  link: /docs/healthbar/
 
 footer:
   copyright: "&copy; Copyright Benoît Pelletier 2025. All rights reserved."
+
+editor:
+  enabled: false
+
+showSidebarFilter: false
+
+nav:
+  mode: stack
+  icons:
+    mode: pages
+
+nextprev:
+  mode: hide
+
+scheme:
+  mode: dark
+
+theme:
+  base:
+    base-color: "#F28500"
+  dark:
+    base-color: "#F28500"
