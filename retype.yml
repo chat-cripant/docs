@@ -8,8 +8,11 @@ start:
   # pro: true
 
 branding:
-  title: Crux Plugins
-  label: Docs
+  label: PLUGINS
+  logo: /static/logo.png
+  baseColor: "#F28500"
+
+favicon: /static/icon_512px.png
 
 breadcrumb:
   enabled: true
@@ -17,10 +20,19 @@ breadcrumb:
 
 links:
 - text: Health Bar
-  link: /docs/healthbar/
+  link: /HealthBar/index.md
+- text: Discord
+  link: https://discord.gg/kF8wWmp5uc
+  icon: comment-discussion
+  target: blank
 
 footer:
   copyright: "&copy; Copyright Benoît Pelletier 2025. All rights reserved."
+  links:
+  - text: Discord
+    link: https://discord.gg/kF8wWmp5uc
+    icon: comment-discussion
+    target: blank
 
 editor:
   enabled: false
@@ -38,8 +50,3 @@ nextprev:
 scheme:
   mode: dark
 
-theme:
-  base:
-    base-color: "#F28500"
-  dark:
-    base-color: "#F28500"

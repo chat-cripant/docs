@@ -5,14 +5,14 @@ icon: heart
 
 # Health Bar Plugin
 
-[!button variant="warning" size="l" target="blank" text="Get it on Fab!"](link-here)
+[!button variant="warning" size="l" target="blank" text="Get it on Fab!"](https://fab.com/listings/4f5a7aa0-c904-4c19-bf3b-efc8185f0a5a)
 
 The Crux Health Bar is a highly customizable UMG/Slate widget designed for all types of games.
 It extends the standard progress bar functionality with built-in support for "damage preview", smooth "catch-up" fading animations, and dual-axis filling strategies.
 
 The widget is built on a custom Slate implementation (SCXHealthBar) for performance and exposes a standard UMG interface (UCXHealthBar).
 
-# General Settings
+### General Settings
 
 ![](/static/images/HealthBar/chb_settings.jpg)
 
