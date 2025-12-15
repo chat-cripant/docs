@@ -10,35 +10,35 @@
     <meta name="generator" content="Retype 3.11.0">
 
     <!-- Primary Meta Tags -->
-    <title>Crux Plugins Documentation</title>
-    <meta name="title" content="Crux Plugins Documentation">
-    <meta name="description" content="The Crux Plugins are a collection of Unreal Engine plugins, designed to be core sytems and features usable in many projects (hence the name \"Crux\",...">
+    <title>Health Bar Plugin</title>
+    <meta name="title" content="Health Bar Plugin">
+    <meta name="description" content="The Crux Health Bar is a highly customizable UMG/Slate widget designed for all types of games. It extends the standard progress bar functionality with...">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://chat-cripant.github.io/docs/">
+    <link rel="canonical" href="https://chat-cripant.github.io/docs/healthbar/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chat-cripant.github.io/docs/">
-    <meta property="og:title" content="Crux Plugins Documentation">
-    <meta property="og:description" content="The Crux Plugins are a collection of Unreal Engine plugins, designed to be core sytems and features usable in many projects (hence the name \"Crux\",...">
-    <meta property="og:image" content="https://chat-cripant.github.io/docs/static/logo.png">
+    <meta property="og:url" content="https://chat-cripant.github.io/docs/healthbar/">
+    <meta property="og:title" content="Health Bar Plugin">
+    <meta property="og:description" content="The Crux Health Bar is a highly customizable UMG/Slate widget designed for all types of games. It extends the standard progress bar functionality with...">
+    <meta property="og:image" content="https://chat-cripant.github.io/docs/static/images/healthbar/chb_settings.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://chat-cripant.github.io/docs/">
-    <meta property="twitter:title" content="Crux Plugins Documentation">
-    <meta property="twitter:description" content="The Crux Plugins are a collection of Unreal Engine plugins, designed to be core sytems and features usable in many projects (hence the name \"Crux\",...">
-    <meta property="twitter:image" content="https://chat-cripant.github.io/docs/static/logo.png">
+    <meta property="twitter:url" content="https://chat-cripant.github.io/docs/healthbar/">
+    <meta property="twitter:title" content="Health Bar Plugin">
+    <meta property="twitter:description" content="The Crux Health Bar is a highly customizable UMG/Slate widget designed for all types of games. It extends the standard progress bar functionality with...">
+    <meta property="twitter:image" content="https://chat-cripant.github.io/docs/static/images/healthbar/chb_settings.jpg">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="static/icon_512px.png" rel="icon">
-    <link href="resources/css/retype.css?v=3.11.0.819072479451" rel="stylesheet">
+    <link href="../static/icon_512px.png" rel="icon">
+    <link href="../resources/css/retype.css?v=3.11.0.819072479451" rel="stylesheet">
 
-    <script data-cfasync="false" src="resources/js/config.js?v=3.11.0.819072479451" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=3.11.0.819072479451" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/config.js?v=3.11.0.819072479451" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.11.0.819072479451" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -53,10 +53,10 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="retype-branding-logo" href="" class="flex items-center leading-snug text-2xl">
+                        <a id="retype-branding-logo" href="../" class="flex items-center leading-snug text-2xl">
                             <span class="grow-0 shrink-0 overflow-hidden">
-                                <img class="max-h-10 dark:hidden md:inline-block" src="static/logo.png">
-                                <img class="max-h-10 hidden dark:inline-block" src="static/logo.png">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../static/logo.png">
+                                <img class="max-h-10 hidden dark:inline-block" src="../static/logo.png">
                             </span>
                         </a><span id="retype-branding-label" class="inline-flex mt-1 px-2 py-1 ml-4 text-xs font-medium leading-none items-center rounded-md bg-branding-label-bg text-branding-label-text ring-1 ring-branding-label-border ring-inset md:inline-block">PLUGINS</span>
                     </div>
@@ -69,7 +69,7 @@
                     <nav id="retype-header-nav" class="hidden md:flex">
                         <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
                             <li class="mr-6">
-                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text-weight hover:text-header-text-hover" href="healthbar/">Health Bar</a>
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text-weight hover:text-header-text-hover" href="../healthbar/">Health Bar</a>
                             </li>
                             <li class="mr-6">
                                 <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text-weight hover:text-header-text-hover" href="https://discord.gg/kF8wWmp5uc" target="_blank">
@@ -153,7 +153,7 @@
                             <nav>
                                 <ul class="flex flex-wrap justify-center items-center">
                                     <li class="mr-6">
-                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text-weight hover:text-header-text-hover" href="healthbar/">Health Bar</a>
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text-weight hover:text-header-text-hover" href="../healthbar/">Health Bar</a>
                                     </li>
                                     <li class="mr-6">
                                         <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text-weight hover:text-header-text-hover" href="https://discord.gg/kF8wWmp5uc" target="_blank">
@@ -186,51 +186,148 @@
                             <div class="retype-markdown" id="retype-content">
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="retype-sidebar-right-toggle"></div>
+                                <nav id="retype-breadcrumb" class="breadcrumb" aria-label="Breadcrumb">
+                                    <ol role="list">
+                                        <li class="pr-4">
+                                            <a href="../" class="pr-4">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                                    <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                                </svg>
+                                            </a>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
+                                            </svg>
+                                        </li>
+                                        <li class="pr-4">
+                                            <a href="../healthbar/" class="pr-4">
+                                                Health Bar
+                                            </a>
+                                        </li>
+                                    </ol>
+                                </nav>
+                
                                 <!-- Page content  -->
+<doc-anchor-target id="health-bar-plugin" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#health-bar-plugin">#</doc-anchor-trigger>
+        <span>Health Bar Plugin</span>
+    </h1>
+</doc-anchor-target>
+<p><a href="https://fab.com/listings/4f5a7aa0-c904-4c19-bf3b-efc8185f0a5a" target="_blank" class="no-link inline-flex align-middle items-center font-medium cursor-pointer transition-colors duration-200 ease-out focus:outline-none bg-button-warning hover:bg-button-warning-hover text-button-warning-text px-4 h-12 rounded-md">
+    <span>Get it on Fab!</span>
+</a></p>
+<p>The Crux Health Bar is a highly customizable UMG/Slate widget designed for all types of games.
+It extends the standard progress bar functionality with built-in support for &quot;damage preview&quot;, smooth &quot;catch-up&quot; fading animations, and dual-axis filling strategies.</p>
+<p>The widget is built on a custom Slate implementation (SCXHealthBar) for performance and exposes a standard UMG interface (UCXHealthBar).</p>
+<doc-anchor-target id="general-settings">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#general-settings">#</doc-anchor-trigger>
+        <span>General Settings</span>
+    </h3>
+</doc-anchor-target>
 <p><figure class="content-center">
-    <img src="static/logo.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" width="70%" />
+    <img src="../static/images/healthbar/chb_settings.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
-<doc-anchor-target id="welcome-to-the-crux-plugins-documentation" class="break-words">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#welcome-to-the-crux-plugins-documentation">#</doc-anchor-trigger>
-        <span>Welcome to the Crux Plugins documentation</span>
-    </h1>
-</doc-anchor-target>
-<p>The Crux Plugins are a collection of Unreal Engine plugins, designed to be core sytems and features usable in many projects (hence the name &quot;Crux&quot;, as the essential or vital features for game projects).</p>
-<style>
-    .link-button {
-        text-align: center;
-        //border: solid red 1px;
-        width: 30%;
-        display: inline-block;
-    }
-    .column {
-        //border: solid red 1px;
-        width: 70%;
-        display: inline-block;
-    }
-</style>
-<div class="column"><p>
+<ul>
+<li><p><strong>Max Value</strong><br />
+This value determines what is the 100% value (used to compute current percentage with <code v-pre>CurrentValue / MaxValue</code>).</p>
+</li>
+<li><p><strong>Current Value</strong><br />
+This is the current value for the data shown by the widget (used to compute current percentage with <code v-pre>CurrentValue / MaxValue</code>).</p>
+</li>
+<li><p><strong>Padding</strong><br />
+This defines the filling bounding box. The 0% and 100% will be determined by taking into account this area.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-primary"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-callout-primary" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Note</h5>
+<p>You can toggle the <code v-pre>Draw Debug</code> in the advanced section to visualize the padding.<br />
+It will be depicted by a yellow rectangle when the widget is selected.</p>
+        </div>
+    </div>
+</div>
+<p><img src="../static/images/healthbar/chb_padding.jpg" alt="" width="50%" /></p>
+</li>
+<li><p><strong>Filling Strategy</strong><br />
+This widget supports filling on both axes simultaneously.
+You can make any combination of those values:</p>
+<ul>
+<li><strong>Horizontal</strong>: LeftToRight, RightToLeft, FillFromCenter, or None.</li>
+<li><strong>Vertical</strong>: TopToBottom, BottomToTop, FillFromCenter, or None.</li>
+</ul>
+<p><img src="../static/images/healthbar/chb_horizontal_demo.gif" alt="" width="50%" /></p>
+</li>
+<li><p><strong>Fill Type</strong></p>
+<ul>
+<li><strong>Mask</strong>: The image is clipped (masked) to show progress. Useful for complex textures that shouldn&#x27;t be distorted.</li>
+<li><strong>Scale</strong>: The image geometry itself is scaled. Useful for simple gradients or solid colors.</li>
+</ul>
+<p><img src="../static/images/healthbar/chb_scalemask_demo.gif" alt="" width="50%" /></p>
+</li>
+</ul>
+<p>You can get more details on the features by visiting the following pages:</p>
+<p>
 <div class="mb-6 px-5 py-4 flex justify-between relative border border-base-border hover:border-base-border-hover rounded transition-colors duration-150">
     <div class="flex items-center text-base-500">
         <span class="inline-block mb-px">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path d="m12 20.703.343.667a.748.748 0 0 1-.686 0l-.003-.002-.007-.003-.025-.013a31.138 31.138 0 0 1-5.233-3.576C3.8 15.573 1 12.332 1 8.514v-.001C1 5.053 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262a31.148 31.148 0 0 1-5.233 3.576l-.025.013-.007.003-.002.001ZM6.736 4C4.657 4 2.5 5.88 2.5 8.514c0 3.107 2.324 5.96 4.861 8.12a29.655 29.655 0 0 0 4.566 3.175l.073.041.073-.04c.271-.153.661-.38 1.13-.674.94-.588 2.19-1.441 3.436-2.502 2.537-2.16 4.861-5.013 4.861-8.12C21.5 5.88 19.343 4 17.264 4c-2.106 0-3.801 1.389-4.553 3.643a.751.751 0 0 1-1.422 0C10.537 5.389 8.841 4 6.736 4Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
         </span>
-        <span class="inline-block font-medium ml-2">Health Bar</span>
+        <span class="inline-block font-medium ml-2">Preview</span>
     </div>
     <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
-        <span>healthbar/</span>
+        <span>preview/</span>
     </div>
-    <a href="healthbar/" class="absolute block inset-0"></a>
+    <a href="preview/" class="absolute block inset-0"></a>
+</div>
+<div class="mb-6 px-5 py-4 flex justify-between relative border border-base-border hover:border-base-border-hover rounded transition-colors duration-150">
+    <div class="flex items-center text-base-500">
+        <span class="inline-block mb-px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
+        </span>
+        <span class="inline-block font-medium ml-2">Fade</span>
+    </div>
+    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
+        <span>fade/</span>
+    </div>
+    <a href="fade/" class="absolute block inset-0"></a>
+</div>
+<div class="mb-6 px-5 py-4 flex justify-between relative border border-base-border hover:border-base-border-hover rounded transition-colors duration-150">
+    <div class="flex items-center text-base-500">
+        <span class="inline-block mb-px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
+        </span>
+        <span class="inline-block font-medium ml-2">Material Parameters</span>
+    </div>
+    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
+        <span>materialparams/</span>
+    </div>
+    <a href="materialparams/" class="absolute block inset-0"></a>
+</div>
+<div class="mb-6 px-5 py-4 flex justify-between relative border border-base-border hover:border-base-border-hover rounded transition-colors duration-150">
+    <div class="flex items-center text-base-500">
+        <span class="inline-block mb-px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
+        </span>
+        <span class="inline-block font-medium ml-2">9-Slice Material Node</span>
+    </div>
+    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
+        <span>materialnode/</span>
+    </div>
+    <a href="materialnode/" class="absolute block inset-0"></a>
 </div>
 </p>
-</div>
-<div class="link-button"><p><a href="https://fab.com/listings/4f5a7aa0-c904-4c19-bf3b-efc8185f0a5a" target="_blank" class="no-link inline-flex align-middle items-center font-medium cursor-pointer transition-colors duration-200 ease-out focus:outline-none bg-button-info hover:bg-button-info-hover text-button-info-text hover:text-button-info-text-hover border border-button-info-border hover:border-button-info-border-hover px-4 h-12 rounded-md">
-    <span>Get it on Fab!</span>
-</a></p>
-</div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -240,13 +337,20 @@
                             
                                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                                     <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
+                                                <span class="block mt-1">Home</span>
+                                            </span>
+                                        </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l rounded-r-lg transition-colors duration-150 relative hover:z-5" href="healthbar/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../healthbar/preview/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                                <span class="block mt-1">Health Bar</span>
+                                                <span class="block mt-1">Preview</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -300,6 +404,6 @@
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Home", isRoot: true, level: 0, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Health Bar", level: 1, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
