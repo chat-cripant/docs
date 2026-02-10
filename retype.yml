@@ -21,6 +21,10 @@ breadcrumb:
 links:
 - text: Health Bar
   link: /HealthBar/index.md
+  icon: heart
+- text: Utilities
+  link: /Utilities/index.md
+  icon: tools
 - text: Discord
   link: https://discord.gg/kF8wWmp5uc
   icon: comment-discussion
@@ -42,7 +46,7 @@ showSidebarFilter: false
 nav:
   mode: stack
   icons:
-    mode: pages
+    mode: all
 
 nextprev:
   mode: hide
