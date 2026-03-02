@@ -22,6 +22,9 @@ links:
 - text: Health Bar
   link: /HealthBar/index.md
   icon: heart
+- text: States & Events
+  link: /StatesAndEvents/index.md
+  icon: git-compare
 - text: Utilities
   link: /Utilities/index.md
   icon: tools

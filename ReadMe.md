@@ -9,7 +9,7 @@ meta:
 
 # Welcome to the Crux Plugins documentation
 
-The Crux Plugins are a collection of Unreal Engine plugins, designed to be core sytems and features usable in many projects (hence the name "Crux", as the essential or vital features for game projects).
+The Crux Plugins are a collection of Unreal Engine plugins, designed to be core systems and features usable in many projects (hence the name "Crux", as the essential or vital features for game projects).
 
 <style>
     .link-button {
@@ -30,6 +30,13 @@ The Crux Plugins are a collection of Unreal Engine plugins, designed to be core 
 :::
 :::link-button
 [!button variant="info" icon="download" size="l" target="blank" text="Get it on Fab!"](https://fab.com/listings/c1350561-e596-4bed-aa28-12aab5c18d85)
+:::
+
+:::column
+[!ref icon="git-compare" text="States & Events"](/StatesAndEvents/index.md)
+:::
+:::link-button
+[!button variant="info" icon="download" size="l" target="blank" text="Get it on Fab!"](https://fab.com/listings/)
 :::
 
 :::column
