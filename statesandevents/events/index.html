@@ -11,22 +11,18 @@
     <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
-    <title>Aggregators</title>
-    <meta name="title" content="Aggregators">
-    <meta name="description" content="An aggregator is an object taking values from multiple sources and output only one value for your use case.">
+    <title>Events</title>
+    <meta name="title" content="Events">
+    <meta name="description" content="COMING SOON">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://chat-cripant.github.io/docs/utilities/aggregators/">
+    <link rel="canonical" href="https://chat-cripant.github.io/docs/statesandevents/events/">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chat-cripant.github.io/docs/utilities/aggregators/">
-    <meta property="og:title" content="Aggregators">
-    <meta property="og:description" content="An aggregator is an object taking values from multiple sources and output only one value for your use case.">
-    <meta property="og:image" content="https://chat-cripant.github.io/docs/static/images/utilities/aggregator_commonnodes.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Aggregators">
+    <meta property="og:url" content="https://chat-cripant.github.io/docs/statesandevents/events/">
+    <meta property="og:title" content="Events">
+    <meta property="og:description" content="COMING SOON">
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
@@ -227,127 +223,39 @@
                             </svg>
                         </li>
                         <li class="pr-4">
-                            <a href="../../utilities/" class="pr-4">
-                                Utilities
+                            <a href="../../statesandevents/" class="pr-4">
+                                States & Events
                             </a>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/>
                             </svg>
                         </li>
                         <li class="pr-4">
-                            <a href="../../utilities/aggregators/" class="pr-4">
-                                Aggregators
+                            <a href="../../statesandevents/events/" class="pr-4">
+                                Events
                             </a>
                         </li>
                     </ol>
                 </nav>
 
                 <!-- Page content  -->
-<doc-anchor-target id="aggregators" class="break-words">
+<doc-anchor-target id="events" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#aggregators">#</doc-anchor-trigger>
-        <span>Aggregators</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#events">#</doc-anchor-trigger>
+        <span>Events</span>
     </h1>
 </doc-anchor-target>
-<p>An aggregator is an object taking values from multiple sources and output only one value for your use case.</p>
-<p>An example use-case is when you want to lock the inputs of the player.<br />
-There may be multiple sources wanting to lock the player inputs, e.g. the dialog system, any menu, a cutscene, or even just interacting with an actor.</p>
-<p>Issues may happen if your sources are accessing the player controller boolean directly. For example, if you are interacting with an actor which locks the inputs (while it does something) but during that you pause and resume the game which does also lock/unlock inputs, then the player inputs are unlocked in a situation it should not be unlocked.</p>
-<p>An aggregator is useful here: each source will tell &quot;I&#x27;m locking/unlocking the player inputs&quot; to the aggregator, and the player controller will ask the aggregator &quot;does any is locking the player inputs?&quot; to know if at least one source has a lock.</p>
-<p>Another use-case example is the player maximum speed.<br />
-You may have the player speed affected by multiple sources, for example when the player crouches, when he is walking in water, by some buffs/debuffs applied to it, or even being in interior or exterior of buildings.</p>
-<p>The aggregators are useful here too. Instead of modifying the max speed directly from the sources, each source will set or reset their max speed in the aggregator, and the player character will get the minimum value from the aggregator to set up its maximum speed.</p>
-<p>Each aggregator type have common basic nodes:</p>
-<ul>
-<li><code translate="no" v-pre>Set</code>: A source set its value to the aggregator. The aggregator will store values for each source. If the same source set again a value, it will override its previous value set.</li>
-<li><code translate="no" v-pre>Reset</code>: A source removes its value from the aggregator. Does nothing if the source has no value set yet.</li>
-<li><code translate="no" v-pre>Is Set</code>: Tells if the aggregator has at least one value set by a source. Returns false if the aggregator has no value set at all.</li>
-<li><code translate="no" v-pre>Clear</code>: Removes all values from the aggregator.</li>
-</ul>
-<p><figure class="content-center">
-    <img src="../../static/images/utilities/aggregator_commonnodes.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
-<doc-anchor-target id="boolean-aggregator">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#boolean-aggregator">#</doc-anchor-trigger>
-        <span>Boolean Aggregator</span>
-    </h2>
-</doc-anchor-target>
-<p>A source can set <code translate="no" v-pre>True</code> or <code translate="no" v-pre>False</code> to the aggregator.</p>
-<p>You can then use those nodes from the aggregator to use the values:</p>
-<ul>
-<li><code translate="no" v-pre>Has All</code> node: Returns <code translate="no" v-pre>True</code> if <strong>all</strong> sources have set the same as the input (for example, when all players are ready to play).</li>
-<li><code translate="no" v-pre>Has Any</code> node: Returns <code translate="no" v-pre>True</code> if at least one source has set the same as the input (for example, at least one source locks the player inputs).</li>
-</ul>
-<p><figure class="content-center">
-    <img src="../../static/images/utilities/aggregator_boolnodes.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
-<doc-anchor-target id="scalar-aggregator">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#scalar-aggregator">#</doc-anchor-trigger>
-        <span>Scalar Aggregator</span>
-    </h2>
-</doc-anchor-target>
-<p>The scalar aggregators can have scalar values set from the sources. The <code translate="no" v-pre>Float Aggregator</code>, <code translate="no" v-pre>Integer Aggregator</code> and <code translate="no" v-pre>Int64 Aggregator</code> are all scalar aggregator.</p>
-<p>You can use those nodes from the aggregator to use the values:</p>
-<ul>
-<li><code translate="no" v-pre>Get Min</code> node: Returns the minimum value from all sources. Will return the default value if no value is set.</li>
-<li><code translate="no" v-pre>Get Max</code> node: Returns the maximum value from all sources. Will return the default value if no value is set.</li>
-<li><code translate="no" v-pre>Get Average</code> node: Returns the average value (rounded if applicable) from all sources. Will return the default value if no value is set.</li>
-</ul>
-<p><figure class="content-center">
-    <img src="../../static/images/utilities/aggregator_scalarnodes.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
-<doc-anchor-target id="vector-aggregator">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#vector-aggregator">#</doc-anchor-trigger>
-        <span>Vector Aggregator</span>
-    </h2>
-</doc-anchor-target>
-<p>The <code translate="no" v-pre>Vector Aggregator</code> treats vector values as points.</p>
-<p>You can use those nodes from the aggregator to use the values:</p>
-<ul>
-<li><code translate="no" v-pre>Get Closest</code> node: Returns the closest source point to the provided input. Will return the provided input if no value set.</li>
-<li><code translate="no" v-pre>Get Farthest</code> node: Returns the farthest source point from the provided input. Will return the provided input if no value set.</li>
-<li><code translate="no" v-pre>Get Average</code>node: Returns the average point of all source values. Will return the default value set in input if no value is set.</li>
-</ul>
-<p><figure class="content-center">
-    <img src="../../static/images/utilities/aggregator_vectornodes.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
-<doc-anchor-target id="rotator-aggregator">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#rotator-aggregator">#</doc-anchor-trigger>
-        <span>Rotator Aggregator</span>
-    </h2>
-</doc-anchor-target>
-<p>As the <code translate="no" v-pre>Vector Aggregator</code>, you can use those node from the aggregator to use the values:</p>
-<ul>
-<li><code translate="no" v-pre>Get Closest</code> node: Returns the closest source rotator to the provided input. Will return the provided input if no value set.</li>
-<li><code translate="no" v-pre>Get Farthest</code> node: Returns the farthest source rotator from the provided input. Will return the provided input if no value set.</li>
-</ul>
-<p><figure class="content-center">
-    <img src="../../static/images/utilities/aggregator_rotatornodes.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
+<p><em>COMING SOON</em></p>
 <div id="retype-backlinks">
     <h2>See also</h2>
     <div class="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
-        <a href="/docs/utilities/" class="group no-link">
+        <a href="/docs/statesandevents/" class="group no-link">
             <div class="flex flex-col">
                 <div>
-                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path d="M7.875 2.292a.114.114 0 0 0-.032.018A7.239 7.239 0 0 0 4.75 8.25a7.248 7.248 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.749 8.749 0 0 1 3.25 8.25a8.738 8.738 0 0 1 3.732-7.169 1.547 1.547 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.547 1.547 0 0 1 1.708.064 8.741 8.741 0 0 1 3.732 7.17 8.747 8.747 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.247 7.247 0 0 0 19.25 8.25a7.239 7.239 0 0 0-3.093-5.94.114.114 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.752 1.752 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.068.068 0 0 0-.031-.011l-.01.001Z"/></svg>
-                    <span>Utilities Plugin</span>
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path d="M16.5 19.25a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0Zm3.25-1.75a1.75 1.75 0 1 0 .001 3.501 1.75 1.75 0 0 0-.001-3.501Z"/><path d="M13.905 1.72a.75.75 0 0 1 0 1.06L12.685 4h4.065a3.75 3.75 0 0 1 3.75 3.75v8.75a.75.75 0 0 1-1.5 0V7.75a2.25 2.25 0 0 0-2.25-2.25h-4.064l1.22 1.22a.75.75 0 0 1-1.061 1.06l-2.5-2.5a.75.75 0 0 1 0-1.06l2.5-2.5a.75.75 0 0 1 1.06 0ZM7.5 4.75a3.25 3.25 0 1 1-6.5 0 3.25 3.25 0 0 1 6.5 0ZM4.25 6.5a1.75 1.75 0 1 0-.001-3.501A1.75 1.75 0 0 0 4.25 6.5Z"/><path d="M10.095 22.28a.75.75 0 0 1 0-1.06l1.22-1.22H7.25a3.75 3.75 0 0 1-3.75-3.75V7.5a.75.75 0 0 1 1.5 0v8.75a2.25 2.25 0 0 0 2.25 2.25h4.064l-1.22-1.22a.748.748 0 0 1 .332-1.265.75.75 0 0 1 .729.205l2.5 2.5a.75.75 0 0 1 0 1.06l-2.5 2.5a.75.75 0 0 1-1.06 0Z"/></svg>
+                    <span>States &amp; Events Plugin</span>
                 </div>
-                <p>The Crux Utilities plugin is a small and free plugin bringing some utilities useful for any game project.</p>
+                <p>The Crux States &amp; Events plugin is a collection of Unreal Engine subsystems designed to streamline your workflow, minimize bugs, and make maintenance</p>
             </div>
         </a>
     </div>
@@ -407,6 +315,6 @@ You may have the player speed affected by multiple sources, for example when the
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Aggregators", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Events", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
