@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825760942933">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825876988132">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.1.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>States</title>
     <meta name="title" content="States">
-    <meta name="description" content="COMING SOON">
+    <meta name="description" content="The States module will help you manage your player and world states while preventing conflicts between them.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://chat-cripant.github.io/docs/statesandevents/states/">
@@ -22,18 +22,22 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://chat-cripant.github.io/docs/statesandevents/states/">
     <meta property="og:title" content="States">
-    <meta property="og:description" content="COMING SOON">
+    <meta property="og:description" content="The States module will help you manage your player and world states while preventing conflicts between them.">
+    <meta property="og:image" content="https://chat-cripant.github.io/docs/static/images/statesandevents/state_lifecycle.svg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="States">
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/icon_512px.png" />
-    <link href="../../resources/css/retype.css?v=4.1.0.825760942933" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825876988132" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825760942933" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825876988132" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825760942933" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825876988132" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -245,7 +249,231 @@
         <span>States</span>
     </h1>
 </doc-anchor-target>
-<p><em>COMING SOON</em></p>
+<p>The States module will help you manage your player and world states while preventing conflicts between them.</p>
+<p>There are <strong>2 subsystems</strong> related to states added by the plugin:</p>
+<ul>
+<li><strong>User States</strong>:  a <code translate="no" v-pre>Local Player Subsystem</code> which will manage a state system for each <code translate="no" v-pre>Local Player</code> in your game.</li>
+<li><strong>World States</strong>: a <code translate="no" v-pre>World Subsystem</code> which will manage a single state system for the current <code translate="no" v-pre>World</code>.</li>
+</ul>
+<doc-anchor-target id="some-use-cases-example">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#some-use-cases-example">#</doc-anchor-trigger>
+        <span>Some Use Cases Example</span>
+    </h2>
+</doc-anchor-target>
+<p>I&#x27;ll start by exposing you a simple yet common use case in many games.</p>
+<p>Let say you have a player character that can roam around the world, and there may be sometimes some <strong>dialogs</strong> popping up when talking to NPC characters, and the player may show a <strong>pause menu</strong> at any time when pressing a button. For both cases you want to disallow your player to interact with the world during those <strong>states</strong>.</p>
+<p>When a dialog pops out, or when the player resume the game, you want now your player to be able to interact with the world again, of course.</p>
+<p><strong>However</strong> if you re-allow world interactions when resuming game while the pause menu has been opened during a dialog, then your player can interact with the world when it should not be allowed!</p>
+<p>Here comes this plugin, by defining some states like <code translate="no" v-pre>Playing State</code>, <code translate="no" v-pre>Dialog State</code> and <code translate="no" v-pre>Menu State</code>, they allow you to switch state and define behaviors to each state, for example, by allowing world interactions when entering the <code translate="no" v-pre>Playing State</code> and disallow when exiting it.<br />
+No state other than the <code translate="no" v-pre>Playing State</code> should touch the world interaction toggle, thus you are sure to always enable it in the proper state.</p>
+<doc-anchor-target id="a-stack-based-state-system">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#a-stack-based-state-system">#</doc-anchor-trigger>
+        <span>A Stack-Based State System</span>
+    </h2>
+</doc-anchor-target>
+<p>The state system is based on a stack, meaning you push a new state on top of the others, and you pop a state from the top of the stack.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-secondary"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-callout-secondary" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>NOTE</h5>
+<p>While in theory you can&#x27;t pop an element in the middle of a stack, in practice you <strong>can</strong> pop any state from the stack in this plugin, because it may be needed in some cases.</p>
+        </div>
+    </div>
+</div>
+<doc-anchor-target id="lifecycle-of-a-state">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#lifecycle-of-a-state">#</doc-anchor-trigger>
+        <span>Lifecycle of a state</span>
+    </h3>
+</doc-anchor-target>
+<style>
+    .column {
+        //border: solid red 1px;
+        width: 50%;
+        display: inline-block;
+        vertical-align: top;
+    }
+</style>
+<div class="column"><p><figure class="content-center">
+    <img src="../../static/images/statesandevents/state_lifecycle.svg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+</div>
+<div class="column"><p>The state life is made up of those different functions:</p>
+<ul>
+<li><strong><code translate="no" v-pre>Init</code></strong>: Initializes the state at its creation when pushed, you can pass some parameters when calling <code translate="no" v-pre>Push State</code> from the subsystem.</li>
+<li><strong><code translate="no" v-pre>Enter</code></strong>: Called when the state become active. You have access to the previous active state (<code translate="no" v-pre>From State</code> input).</li>
+<li><strong><code translate="no" v-pre>Tick</code></strong>: <strong>Only available for <code translate="no" v-pre>World States</code>!</strong> Same behavior as the actors <code translate="no" v-pre>Tick</code> events.</li>
+<li><strong><code translate="no" v-pre>Exit</code></strong>: Called when becoming inactive (when state is popped or another state is pushed on top). You have access to the next active state (<code translate="no" v-pre>To State</code> input).</li>
+<li><strong><code translate="no" v-pre>Release</code></strong>: Cleanup must be done here if necessary, the state is no longer alive and may be Garbage Collected at anytime after that.</li>
+</ul>
+<p>You can refer to the diagram beside to know when each one is called relatively to the others when doing a push or pop (time passes from up to down).</p>
+<p><em>* <code translate="no" v-pre>Tick</code> function exists only for <code translate="no" v-pre>World States</code>.</em></p>
+</div>
+<doc-anchor-target id="getting-started">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#getting-started">#</doc-anchor-trigger>
+        <span>Getting Started</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="what-are-user-states">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#what-are-user-states">#</doc-anchor-trigger>
+        <span>What are User States</span>
+    </h3>
+</doc-anchor-target>
+<p>I call &quot;user&quot; states a local <em>physical</em> player state. Since the <code translate="no" v-pre>Player State</code> is already existing in UE for a whole another topic, I decided to use the word &quot;user&quot; instead of &quot;player&quot;.</p>
+<p>You should use them for states on the scope of the player, mainly what are client-side only.<br />
+For example, a dialog with an NPC, or going into the game settings menu.</p>
+<doc-anchor-target id="what-are-world-states">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#what-are-world-states">#</doc-anchor-trigger>
+        <span>What are World States</span>
+    </h3>
+</doc-anchor-target>
+<p>This state stack is unique for the whole world.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-secondary"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-callout-secondary" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>NOTE</h5>
+<p><strong>It is not replicated!</strong><br />
+So you can either have different world states for each client, or manage the world states only on server-side.</p>
+        </div>
+    </div>
+</div>
+<doc-anchor-target id="create-your-states">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#create-your-states">#</doc-anchor-trigger>
+        <span>Create Your States</span>
+    </h3>
+</doc-anchor-target>
+<p>To create a new state, just create a new blueprint class, and search for <code translate="no" v-pre>CX State</code>.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/statesandevents/state_create.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p>You can then override its functions to define its behavior.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/statesandevents/state_function_override.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<doc-anchor-target id="push-and-pop-your-states">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#push-and-pop-your-states">#</doc-anchor-trigger>
+        <span>Push and Pop your States</span>
+    </h3>
+</doc-anchor-target>
+<p>For the <code translate="no" v-pre>World States</code> you just have to call the <code translate="no" v-pre>Get Subsystem</code> node, then call the <code translate="no" v-pre>Push State</code> function on it and finally choose the <code translate="no" v-pre>World State</code> class you want to push.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/statesandevents/state_get_subsystem.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p><figure class="content-center">
+    <img src="../../static/images/statesandevents/state_push.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p>To pop a state, the best way is to keep a reference of the state you&#x27;ve pushed, and pass it to the <code translate="no" v-pre>Pop State</code> function.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>INFO</h5>
+<p>Providing the state to pop prevents your code to remove unexpectedly a state managed by something else, and also allows you to pop a state even if it&#x27;s not the active state.</p>
+        </div>
+    </div>
+</div>
+<p><figure class="content-center">
+    <img src="../../static/images/statesandevents/state_pop.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<doc-anchor-target id="how-to-pass-parameters-to-your-states">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#how-to-pass-parameters-to-your-states">#</doc-anchor-trigger>
+        <span>How to pass Parameters to your States</span>
+    </h3>
+</doc-anchor-target>
+<p>Any <code translate="no" v-pre>UObject</code> derived class can be used as a parameter.
+So you can pass an <code translate="no" v-pre>Actor</code> or a <code translate="no" v-pre>PlayerController</code> if you want.</p>
+<p>However I prefer to always create a custom <code translate="no" v-pre>UObject</code> class used only for parameters, so you can reference your <code translate="no" v-pre>Actor</code> or any other object, <em>and</em> you can add more parameters too, and easier to maintain too.</p>
+<p>So, here is my preferred method to pass parameters to a state.</p>
+<p>First, create a new blueprint class with <code translate="no" v-pre>UObject</code> as parent and add all your parameter variables in it.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-secondary"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-callout-secondary" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>NOTE</h5>
+<p>Make sure to mark your variables as <code translate="no" v-pre>Expose on Spawn</code>, it will be handy later!</p>
+        </div>
+    </div>
+</div>
+<p><figure class="content-center">
+    <img src="../../static/images/statesandevents/state_params_create.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p><figure class="content-center">
+    <img src="../../static/images/statesandevents/state_params_vars.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p>After that, before you push a new state, construct a new instance of your param class with your parameters filled in, and pass it to the <code translate="no" v-pre>Push State</code> node.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/statesandevents/state_params_push.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p>Finally, you can access it in the <code translate="no" v-pre>Init</code> event of your state, you just have to cast it to your blueprint class, and then you can get your parameters!</p>
+<p><figure class="content-center">
+    <img src="../../static/images/statesandevents/state_params_use.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
     <div class="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
