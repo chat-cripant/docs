@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825876988132">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825969657033">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.1.0">
@@ -13,7 +13,7 @@
     <!-- Primary Meta Tags -->
     <title>Events</title>
     <meta name="title" content="Events">
-    <meta name="description" content="COMING SOON">
+    <meta name="description" content="The Events module is a great way to easily implement a good design pattern for your games.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://chat-cripant.github.io/docs/statesandevents/events/">
@@ -22,18 +22,22 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://chat-cripant.github.io/docs/statesandevents/events/">
     <meta property="og:title" content="Events">
-    <meta property="og:description" content="COMING SOON">
+    <meta property="og:description" content="The Events module is a great way to easily implement a good design pattern for your games.">
+    <meta property="og:image" content="https://chat-cripant.github.io/docs/static/images/statesandevents/events_diagram.svg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Events">
     <meta property="og:site_name" content="">
     <meta property="og:locale" content="en_US">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
     <link id="retype-favicon" rel="icon" href="../../static/icon_512px.png" />
-    <link href="../../resources/css/retype.css?v=4.1.0.825876988132" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825969657033" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825876988132" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825969657033" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825876988132" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825969657033" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -245,7 +249,145 @@
         <span>Events</span>
     </h1>
 </doc-anchor-target>
-<p><em>COMING SOON</em></p>
+<p>The Events module is a great way to easily implement a good design pattern for your games.</p>
+<p>In fact, different features of your game may need to interact with other features.<br />
+Doing communication directly between them will create dependencies and tight coupling between your game features, making them hard to change and maintain over time.</p>
+<p>Here comes my plugin!<br />
+By making a single point of communication, the different event subsystems will act as very accessible mediators between your game features.</p>
+<doc-anchor-target id="example-use-case">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#example-use-case">#</doc-anchor-trigger>
+        <span>Example Use Case</span>
+    </h2>
+</doc-anchor-target>
+<p>Let say you have multiple game features, like a player with an inventory and a camera, an HUD displaying some information on screen, an achievement system recording various stats from the game, puzzles in your world to unlock some hidden places, etc.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/statesandevents/events_diagram.svg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p>As you can see in the diagrams above, having each feature directly communicating with the others will lead to a messy intricating of dependencies (arrows are direction of information).
+Maintaining, debugging and modifying this tight-coupled code will quickly become a nightmare.</p>
+<p>When using a mediator, like my events subsystems in my plugin, you are currently decoupling your different features, making it easy to modify, delete or even replace your feature with another. You can easily add new features without changing the whole codebase.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-secondary"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-callout-secondary" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>NOTE</h5>
+<p>As you can see on my diagram above, not all dependencies disappear with a mediator. There are still some other ways of communication not going through the mediator.<br />
+There are other great design patterns for those cases (e.g. interfaces) but not covered by this plugin.</p>
+        </div>
+    </div>
+</div>
+<p>For example, the <code translate="no" v-pre>HUD</code> or <code translate="no" v-pre>Achievements</code> features (in the diagram with the <code translate="no" v-pre>Events</code> mediator) are easily replaceable or removable without touching anything else in the code. Also you can easily debug and test your game features by adding some dev features to send some mockup events (e.g. a debug key to simulate an item received, will just send an event to the mediator and the HUD will display the notification like if it was a real item received by the player).</p>
+<doc-anchor-target id="getting-started">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#getting-started">#</doc-anchor-trigger>
+        <span>Getting Started</span>
+    </h2>
+</doc-anchor-target>
+<p>There are 3 scope levels for the event, each one is a subsystem:</p>
+<ul>
+<li>The <code translate="no" v-pre>Game Instance</code> scope: the event manager is alive from the game start and until the game is closed.</li>
+<li>The <code translate="no" v-pre>World</code> scope: each time you load a new world (e.g. map transition) a new event manager is created.</li>
+<li>The <code translate="no" v-pre>Local Player</code> scope: each local player will have an event manager.</li>
+</ul>
+<p>Choose the corresponding subsystem depending on your use case, but each one works the same.</p>
+<doc-anchor-target id="create-your-event-classes">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#create-your-event-classes">#</doc-anchor-trigger>
+        <span>Create your Event Classes</span>
+    </h3>
+</doc-anchor-target>
+<p>First things first, you need events to send and receive between your game features.</p>
+<p>So, let&#x27;s create some event classes by deriving from the <code translate="no" v-pre>CX Event</code> class of the plugin.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/statesandevents/event_create.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p>You can add any variables to them, for example, for an <code translate="no" v-pre>Inventory Changed</code> event, you may want a reference to the <code translate="no" v-pre>Inventory Item</code> and the quantity added/removed (if negative).</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-secondary"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-callout-secondary" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>NOTE</h5>
+<p>Make sure to mark your variables as <code translate="no" v-pre>Expose on Spawn</code>, it will be handy later!</p>
+        </div>
+    </div>
+</div>
+<p><figure class="content-center">
+    <img src="../../static/images/statesandevents/event_vars.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<doc-anchor-target id="sending-an-event">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sending-an-event">#</doc-anchor-trigger>
+        <span>Sending an Event</span>
+    </h3>
+</doc-anchor-target>
+<p>To send an event, construct a new object of the event you want to send, and then you simply have to retrieve the subsystem you want and call <code translate="no" v-pre>Send Event</code> on it.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/statesandevents/event_get_subsystem.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p><figure class="content-center">
+    <img src="../../static/images/statesandevents/event_send.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<doc-anchor-target id="receiving-an-event">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#receiving-an-event">#</doc-anchor-trigger>
+        <span>Receiving an Event</span>
+    </h3>
+</doc-anchor-target>
+<p>To receive an event, it&#x27;s really easy too.
+Just get the subsystem you want and bind an event to the delegate of the subsystem.</p>
+<p>You then cast the <code translate="no" v-pre>Event</code> input to the event class you want.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-secondary"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-callout-secondary" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>NOTE</h5>
+<p>If you want to receive multiple types of event, you just have to chain the cast nodes using the <code translate="no" v-pre>Cast Falied</code> output.</p>
+        </div>
+    </div>
+</div>
+<p><figure class="content-center">
+    <img src="../../static/images/statesandevents/event_receive.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
 <div id="retype-backlinks">
     <h2>See also</h2>
     <div class="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
