@@ -36,7 +36,7 @@ The Crux Plugins are a collection of Unreal Engine plugins, designed to be core 
 [!ref icon="git-compare" text="States & Events"](/StatesAndEvents/index.md)
 :::
 :::link-button
-[!button variant="info" icon="download" size="l" target="blank" text="Get it on Fab!"](https://fab.com/listings/)
+[!button variant="info" icon="download" size="l" target="blank" text="Get it on Fab!"](https://fab.com/listings/82c04aad-042c-4e4c-adff-c54ce3419cf1)
 :::
 
 :::column

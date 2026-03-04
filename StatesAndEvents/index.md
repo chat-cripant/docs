@@ -5,7 +5,7 @@ icon: git-compare
 
 # States & Events Plugin
 
-[![](/static/images/StatesAndEvents/thumbnail.jpg){width="500"}](){target="blank"}
+[![](/static/images/StatesAndEvents/thumbnail.jpg){width="500"}](https://fab.com/listings/82c04aad-042c-4e4c-adff-c54ce3419cf1){target="blank"}
 
 <style>
     .center {
@@ -14,7 +14,7 @@ icon: git-compare
 </style>
 
 :::center
-[!button variant="info" icon="download" size="l" target="blank" text="Get it on Fab!"](https://fab.com/listings/5eda0844-e404-45fc-8985-bb19a78f9540)
+[!button variant="info" icon="download" size="l" target="blank" text="Get it on Fab!"](https://fab.com/listings/82c04aad-042c-4e4c-adff-c54ce3419cf1)
 :::
 
 The **Crux States & Events** plugin is a collection of Unreal Engine subsystems designed to streamline your workflow, minimize bugs, and make maintenance easier.
