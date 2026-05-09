@@ -12,6 +12,9 @@ branding:
   logo: /static/logo.png
   baseColor: "#F28500"
 
+meta:
+  siteName: Crux Plugins
+
 favicon: /static/icon_512px.png
 
 breadcrumb:
@@ -24,7 +27,7 @@ links:
   icon: heart
 - text: States & Events
   link: /StatesAndEvents/index.md
-  icon: git-compare
+  icon: flowchart
 - text: Utilities
   link: /Utilities/index.md
   icon: tools
@@ -51,9 +54,21 @@ nav:
   icons:
     mode: all
 
+outbound:
+  custom: 'rel="noopener noreferrer"'
+
 nextprev:
   mode: hide
+
+backlinks:
+  enabled: false
+
+lastUpdated:
+  date:
+    enabled: true
 
 scheme:
   mode: dark
 
+toc:
+  label: On this page

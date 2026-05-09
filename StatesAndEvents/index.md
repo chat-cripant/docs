@@ -1,6 +1,6 @@
 ---
 label: States & Events
-icon: git-compare
+icon: flowchart
 ---
 
 # States & Events Plugin
