@@ -17,7 +17,7 @@ icon: heart
 [!button variant="info" icon="download" size="l" target="blank" text="Get it on Fab!"](https://fab.com/listings/c1350561-e596-4bed-aa28-12aab5c18d85)
 :::
 
-The Crux Health Bar is a highly customizable UMG/Slate widget designed for all types of games.
+The **Crux Health Bar** is a highly customizable UMG/Slate widget designed for all types of games.
 It extends the standard progress bar functionality with built-in support for "damage preview", smooth "catch-up" fading animations, and dual-axis filling strategies.
 
 The widget is built on a custom Slate implementation (SCXHealthBar) for performance and exposes a standard UMG interface (UCXHealthBar).
@@ -35,10 +35,11 @@ The widget is built on a custom Slate implementation (SCXHealthBar) for performa
 - **Padding**  
   This defines the filling bounding box. The 0% and 100% will be determined by taking into account this area.  
   
-  > [!note]
-  > You can toggle the `Draw Debug` in the advanced section to visualize the padding.  
-  > It will be depicted by a yellow rectangle when the widget is selected.
-  
+  !!!
+  You can toggle the `Draw Debug` in the advanced section to visualize the padding.  
+  It will be depicted by a yellow rectangle when the widget is selected.
+  !!!
+
   ![](/static/images/HealthBar/chb_padding.jpg){width=50%}
 
 - **Filling Strategy**  
@@ -50,14 +51,15 @@ The widget is built on a custom Slate implementation (SCXHealthBar) for performa
   ![](/static/images/HealthBar/chb_horizontal_demo.gif){width=50%}
 
 - **Fill Type**  
-  - **Mask**: The image is clipped (masked) to show progress. Useful for complex textures that shouldn't be distorted.
-  - **Scale**: The image geometry itself is scaled. Useful for simple gradients or solid colors.
+  - **Mask**: The image is clipped (masked) to show progress. Simple and basic.
+  - **Scale**: The image geometry itself is scaled. Set your images as `Draw as Box` and define your margins to get the borders not distorted.
+  - **Radial**: A special filling type to create a circular progress bar. See [Radial Bars](./Radial.md) page for more details on it.
 
-  ![](/static/images/HealthBar/chb_scalemask_demo.gif){width=50%}
+  ![](/static/images/HealthBar/chb_scalemask_demo.gif){width=50%} ![](/static/images/HealthBar/chb_radial_demo.gif)
 
 You can get more details on the features by visiting the following pages:
 
 [!ref](./Preview.md)
 [!ref](./Fade.md)
-[!ref](./MaterialParams.md)
-[!ref](./MaterialNode.md)
+[!ref](./Radial.md)
+[!ref](./Customize.md)
