@@ -1,4 +1,4 @@
-﻿# Welcome to the Crux Plugins documentation
+﻿# Crux Plugins
 
 > The Crux Plugins are a collection of Unreal Engine plugins, designed to be core systems and features usable in many projects (hence the name "Crux", as the essential or vital features for game projects).
 
@@ -11,8 +11,8 @@
 
 - [The Preview Feature](https://chat-cripant.github.io/docs/healthbar/preview.md): The Preview layer allows you to visualize a "projected" change in values before it becomes permanent. This is commonly used to show incoming damage (flashing red segment) or incoming healing (flashing green segment).
 - [The Fade Feature](https://chat-cripant.github.io/docs/healthbar/fade.md): The Fade layer provides a "catch-up" animation, often used to visualize recent damage (sometimes called a "lag bar" or "chip damage"). When the current value drops, the main bar drops instantly, but the fade bar lingers and then shrinks smoothly.
-- [Custom Material Parameters](https://chat-cripant.github.io/docs/healthbar/materialparams.md): The widget automatically attempts to create Dynamic Material Instances (MIDs) for the brushes assigned to it.
-- [9-Slice Material Node](https://chat-cripant.github.io/docs/healthbar/materialnode.md): Since I was not happy with the default Draw as Box of Unreal Engine, I've created a custom material node to make the 9-slice of the UV in the material.
+- [Radial Bars](https://chat-cripant.github.io/docs/healthbar/radial.md): The plugin provide a way to create radial (circular) health/progress bars.
+- [Customize Your Bars](https://chat-cripant.github.io/docs/healthbar/customize.md): This plugin lets you create virtually any style of bar. No matter how much experience you have with materials and shaders, you can customize your health and progress bars however you like.
 
 ## States & Events
 
