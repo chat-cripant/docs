@@ -1,0 +1,26 @@
+﻿# Welcome to the Crux Plugins documentation
+
+> The Crux Plugins are a collection of Unreal Engine plugins, designed to be core systems and features usable in many projects (hence the name "Crux", as the essential or vital features for game projects).
+
+- [Welcome to the Crux Plugins documentation](https://chat-cripant.github.io/docs/readme.md): Welcome to the Crux Plugins documentation
+- [Health Bar Plugin](https://chat-cripant.github.io/docs/healthbar/index.md): The Crux Health Bar is a highly customizable UMG/Slate widget designed for all types of games. It extends the standard progress bar functionality with built-in support for "damage preview", smooth "catch-up" fading animations, and dual-axis filling strategies.
+- [States & Events Plugin](https://chat-cripant.github.io/docs/statesandevents/index.md): The Crux States & Events plugin is a collection of Unreal Engine subsystems designed to streamline your workflow, minimize bugs, and make maintenance easier.
+- [Utilities Plugin](https://chat-cripant.github.io/docs/utilities/index.md): The Crux Utilities plugin is a small and free plugin bringing some utilities useful for any game project.
+
+## Health Bar
+
+- [The Preview Feature](https://chat-cripant.github.io/docs/healthbar/preview.md): The Preview layer allows you to visualize a "projected" change in values before it becomes permanent. This is commonly used to show incoming damage (flashing red segment) or incoming healing (flashing green segment).
+- [The Fade Feature](https://chat-cripant.github.io/docs/healthbar/fade.md): The Fade layer provides a "catch-up" animation, often used to visualize recent damage (sometimes called a "lag bar" or "chip damage"). When the current value drops, the main bar drops instantly, but the fade bar lingers and then shrinks smoothly.
+- [Custom Material Parameters](https://chat-cripant.github.io/docs/healthbar/materialparams.md): The widget automatically attempts to create Dynamic Material Instances (MIDs) for the brushes assigned to it.
+- [9-Slice Material Node](https://chat-cripant.github.io/docs/healthbar/materialnode.md): Since I was not happy with the default Draw as Box of Unreal Engine, I've created a custom material node to make the 9-slice of the UV in the material.
+
+## States & Events
+
+- [States](https://chat-cripant.github.io/docs/statesandevents/states.md): The States module will help you manage your player and world states while preventing conflicts between them.
+- [Events](https://chat-cripant.github.io/docs/statesandevents/events.md): The Events module is a great way to easily implement a good design pattern for your games.
+
+## Utilities
+
+- [Aggregators](https://chat-cripant.github.io/docs/utilities/aggregators.md): An aggregator is an object taking values from multiple sources and output only one value for your use case.
+- [Extended Nodes](https://chat-cripant.github.io/docs/utilities/extendednodes.md): The plugin also adds some useful basic nodes I think are missing in the base Unreal Engine.
+- [Max FPS](https://chat-cripant.github.io/docs/utilities/configs.md): A new configuration file parameter is added by the plugin to allow you to setup automatically the maximum FPS of the editor.
